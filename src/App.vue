@@ -4,6 +4,7 @@
   <Modal v-show="showModal"
          :title="modal.title"
          :content="modal.content"
+         @close="toggleModal"
          theme="sale"
   />
 </template>
