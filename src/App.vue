@@ -1,7 +1,7 @@
 <template>
   <h1>{{ title }}</h1>
   <button type="button" @click="toggleModal">Open modal</button>
-  <Modal v-show="showingModal"
+  <Modal v-show="showModal"
          :title="modal.title"
          :content="modal.content"
          theme="sale"
@@ -23,12 +23,12 @@ export default {
         title: 'Custom modal heading',
         content: 'Custom modal content',
       },
-      showingModal: false,
+      showModal: false,
     };
   },
   methods: {
     toggleModal() {
-      this.showingModal = !this.showingModal;
+      this.showModal = !this.showModal;
     },
   },
 };
