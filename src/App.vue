@@ -1,7 +1,11 @@
 <template>
   <h1>{{ title }}</h1>
   <button type="button" @click="toggleModal">Open modal</button>
-  <Modal v-show="showingModal"/>
+  <Modal v-show="showingModal"
+         :title="modal.title"
+         :content="modal.content"
+         theme="sale"
+  />
 </template>
 
 <script>
@@ -14,7 +18,11 @@ export default {
   },
   data() {
     return {
-      title: 'Second Vue App BABYYYYYYY',
+      title: 'My Second Vue App!',
+      modal: {
+        title: 'Custom modal heading',
+        content: 'Custom modal content',
+      },
       showingModal: false,
     };
   },
