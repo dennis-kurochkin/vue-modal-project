@@ -1,9 +1,10 @@
 <template>
   <h1>{{ title }}</h1>
   <button type="button" @click="toggleModal">Open modal</button>
+  <button type="button" @click="togglePopup">Open popup</button>
+
   <Modal v-show="showModal"
          @close="toggleModal"
-         theme="sale"
   >
     <template v-slot:default>
       <h1>{{ modal.title }}</h1>
@@ -14,6 +15,20 @@
       <a href="#">More info</a>
     </template>
   </Modal>
+
+  <Modal v-show="showPopup"
+         @close="togglePopup"
+         theme="sale"
+  >
+    <template v-slot:default>
+      <h1>Sale!</h1>
+      <p>Some new sale thingy</p>
+    </template>
+    <template v-slot:links>
+      <a href="#" @click="togglePopup">BUY</a>
+    </template>
+  </Modal>
+
 </template>
 
 <script>
@@ -32,11 +47,15 @@ export default {
         content: 'Custom modal content',
       },
       showModal: false,
+      showPopup: false,
     };
   },
   methods: {
     toggleModal() {
       this.showModal = !this.showModal;
+    },
+    togglePopup() {
+      this.showPopup = !this.showPopup;
     },
   },
 };
